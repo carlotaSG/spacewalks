@@ -19,26 +19,17 @@ def test_text_to_duration_integer():
     expected_result = 10
     assert actual_result == expected_result
 
-
-def test_calculate_crew_size():
+@pytest.mark.parametrize("input_value, expected_result",
+                         [("Carlota Segura Garcia; Hugues Gesbert", 2),
+                          ("Carlota Segura Garcia; Hugues Gesbert;", 2),
+                          ("Carlota Segura Garcia; Hugues Gesbert;;", 2)
+                          ])
+def test_calculate_crew_size(input_value, expected_result):
     """
-    Test that calculate_crew_size returns expected size of crew entries,
-    which is a string of names separated by semicolons
+    Test that calculate_crew_size returns expected ground truth values
+    for typical crew values
     """
-
-    # Typical value 1
-    actual_result = calculate_crew_size("Carlota Segura Garcia; Hugues Gesbert")
-    expected_result = 2
-    assert actual_result == expected_result
-
-    # Typical value 2
-    actual_result = calculate_crew_size("Carlota Segura Garcia; Hugues Gesbert;")
-    expected_result = 2
-    assert actual_result == expected_result
-
-    # Typical value 2
-    actual_result = calculate_crew_size("Carlota Segura Garcia; Hugues Gesbert;;")
-    expected_result = 2
+    actual_result = calculate_crew_size(input_value)
     assert actual_result == expected_result
 
 # Edge cases
