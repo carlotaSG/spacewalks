@@ -11,7 +11,6 @@ input_file = open('./eva-data.json', 'r', encoding = 'utf-8')
 output_file = open('./eva-data.csv','w', encoding = 'utf-8')
 graph_file = 'cumulative_duration_eva-graph.png'
 
-fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
 
 data=[]
 
