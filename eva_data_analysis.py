@@ -3,6 +3,25 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
+def main(input_file, output_file, graph_file):
+    print("--START--")
+
+    # Read the data from JSON file
+    eva_data = read_json_to_dataframe(input_file)
+
+    # Convert and export data to CSV file
+    write_dataframe_to_csv(eva_data, output_file)
+
+    # Sort dataframe by date ready to be plotted (date values are on x-axis)
+    eva_data.sort_values('date', inplace=True)
+
+    # Plot cumulative time spent in space over years
+    plot_cumulative_time_in_space(eva_data, graph_file)
+
+    print("--END--")
+
+
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
@@ -82,7 +101,8 @@ def text_to_duration(duration):
         duration_hours (float): The duration in hours
     """
     hours, minutes = duration.split(":")
-    duration_hours = int(hours) + int(minutes)/6  # there is an intentional bug on this line (should divide by 60 not 6)
+    duration_hours = int(hours) + int(
+        minutes) / 6  # there is an intentional bug on this line (should divide by 60 not 6)
     return duration_hours
 
 
@@ -102,25 +122,9 @@ def add_duration_hours(df):
     )
     return df_copy
 
-# Main code
 
-print("--START--")
-
-# https://data.nasa.gov/resource/eva.json (with modifications)
-input_file = open('./eva-data.json', 'r', encoding = 'ascii')
-output_file = open('./eva-data.csv','w', encoding = 'utf-8')
-graph_file = 'cumulative_duration_eva-graph.png'
-
-# Read the data from JSON file
-eva_data = read_json_to_dataframe(input_file)
-
-# Convert and export data to CSV file
-write_dataframe_to_csv(eva_data, output_file)
-
-# Sort dataframe by date ready to be plotted (date values are on x-axis)
-eva_data.sort_values('date', inplace=True)
-
-# Plot cumulative time spent in space over years
-plot_cumulative_time_in_space(eva_data, graph_file)
-
-print("--END--")
+if __name__ == "__main__":
+    input_file = './eva-data.json'
+    output_file = './eva-data.csv'
+    graph_file = './cumulative_eva_graph.png'
+    main(input_file, output_file, graph_file)
