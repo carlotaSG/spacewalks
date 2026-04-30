@@ -10,6 +10,10 @@ type: software
 authors:
   - given-names: Carlota
     family-names: Segura Garcia
+identifiers:
+  - type: doi
+    value: 10.5072/zenodo.494856
+    description: Zenodo Sandbox
 repository-code: 'https://github.com/carlotaSG/spacewalks'
 abstract: >-
   A Python script to analyse NASA extravehicular activity
@@ -19,3 +23,4 @@ keywords:
   - Extravehicular activity
   - Better Software Tutorial
 license: MIT
+date-released: '2026-04-30'
