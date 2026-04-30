@@ -48,3 +48,7 @@ For detailed information on how to use the package, please refer to the [documen
 ## License
 
 `Spacewalks` is released under the MIT License.
+
+## Citation
+
+[![DOI](https://sandbox.zenodo.org/badge/1220095770.svg)](https://handle.test.datacite.org/10.5072/zenodo.494856)
