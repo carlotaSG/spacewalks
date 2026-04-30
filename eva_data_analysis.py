@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# This code is released under MIT License, with Copyright (c) 2026 Carlota Segura Garcia
 
 import matplotlib.pyplot as plt
 import pandas as pd
