@@ -41,6 +41,10 @@ python3 eva_data_analysis.py eva-data.json eva-data.csv
 The first argument is path to the JSON data file.
 The second argument is the path the CSV output file.
 
+## Documentation
+
+For detailed information on how to use the package, please refer to the [documentation](https://carlotasg.github.io/spacewalks/index.html).
+
 ## License
 
 `Spacewalks` is released under the MIT License.
